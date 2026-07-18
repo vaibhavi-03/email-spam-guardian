@@ -1,78 +1,82 @@
 [
   [
+    "num__Email_Length",
+    3.696457658839545
+  ],
+  [
     "num__Num_Special_Chars",
-    5.975359984795448
+    3.6899007666179386
   ],
   [
     "num__Capital_Words",
-    3.98892776749402
-  ],
-  [
-    "cat__Subject_Offer",
-    0.3683925325855216
-  ],
-  [
-    "remainder__Has_Attachment",
-    0.30375164479540323
-  ],
-  [
-    "cat__Subject_Meeting",
-    0.22266558911072032
+    2.0184684914205087
   ],
   [
     "num__Num_Links",
-    0.19742109616959955
+    1.8267153653068309
   ],
   [
-    "cat__Subject_Win Prize",
-    0.19416199337444048
-  ],
-  [
-    "cat__Subject_Project Update",
-    0.19178557390558473
-  ],
-  [
-    "remainder__is_urgent_subject",
-    0.17627120093674226
-  ],
-  [
-    "num__subject_length",
-    0.1604792585122389
-  ],
-  [
-    "cat__email_domain_outlook.com",
-    0.13369983632483307
-  ],
-  [
-    "cat__Subject_Security Alert",
-    0.11218279861953474
-  ],
-  [
-    "cat__Subject_Account Verification",
-    0.09429200618183659
-  ],
-  [
-    "cat__Subject_Greetings",
-    0.05174794955013532
-  ],
-  [
-    "cat__Subject_Invoice",
-    0.041552952376912033
-  ],
-  [
-    "cat__email_domain_gmail.com",
-    0.04072690764727296
-  ],
-  [
-    "cat__email_domain_yahoo.com",
-    0.007816946317173275
+    "remainder__Has_Attachment",
+    0.5916917038535289
   ],
   [
     "cat__email_domain_company.com",
-    0.007543592166014282
+    0.5429965574139632
   ],
   [
-    "cat__email_domain_unknown",
-    0.002717076204079684
+    "cat__Subject_Security Alert",
+    0.304552085653567
+  ],
+  [
+    "cat__Subject_Project Update",
+    0.29226763193729244
+  ],
+  [
+    "cat__email_domain_gmail.com",
+    0.26891624542444187
+  ],
+  [
+    "cat__Subject_Win Prize",
+    0.2642617700689488
+  ],
+  [
+    "cat__Subject_Greetings",
+    0.2401301505217629
+  ],
+  [
+    "cat__Subject_Meeting",
+    0.23284483440129797
+  ],
+  [
+    "cat__email_domain_outlook.com",
+    0.21271175686534582
+  ],
+  [
+    "cat__Subject_Offer",
+    0.16107313149431254
+  ],
+  [
+    "cat__Subject_Invoice",
+    0.11243873324352784
+  ],
+  [
+    "cat__email_domain_yahoo.com",
+    0.09060128838607268
+  ],
+  [
+    "remainder__is_urgent_subject",
+    0.07899675271654484
+  ],
+  [
+    "num__subject_length",
+    0.05107139547991312
+  ],
+  [
+    "cat__Subject_Account Verification",
+    0.03870643713192687
+  ],
+  [
+    "cat__email_domain_unknown.com",
+    0.002525386224913871
   ]
 ]

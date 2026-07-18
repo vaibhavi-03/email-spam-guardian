@@ -26,7 +26,6 @@ before any modelling happens.
 ```
 email-spam-guardian/
 ├── app.py
-├── train_model.py
 ├── requirements.txt
 ├── .gitignore
 ├── README.md
@@ -52,9 +51,6 @@ email-spam-guardian/
 2. **`app.py`** — loads `models/spam_pipeline.joblib`, applies the same feature
    engineering used during training, and serves a live scan page where you can enter an
    email's details and get an instant spam verdict with its probability.
-3. **`train_model.py`** — retrains and exports the production pipeline. The model
-   intentionally excludes `Email_Length` so email size cannot dominate a verdict. Run
-   `python train_model.py` after changing the training data or model configuration.
 
 ## Model performance
 
@@ -74,6 +70,13 @@ number itself.
 
 ```
 
+## Deployment
+
+1. Push this repo to GitHub (public, so Streamlit Community Cloud's free tier can reach it).
+2. Go to [share.streamlit.io](https://share.streamlit.io), sign in with GitHub, click
+   **Create app**.
+3. Point it at your repo, branch `main`, file `app.py`. Click **Deploy**.
+4. Once live, replace the placeholder URL at the top of this README, commit, and push.
 
 ## Tech stack
 
