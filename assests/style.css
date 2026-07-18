@@ -1,0 +1,121 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+
+:root {
+    --bg-navy: #0b1e2d;
+    --bg-navy-light: #10293e;
+    --teal: #17c3b2;
+    --teal-dark: #0f8f83;
+    --cream: #f4f1de;
+    --danger: #e94560;
+    --text-light: #eaf2f4;
+    --text-muted: #9fb3bf;
+}
+
+/* Overall app background */
+.stApp {
+    background: linear-gradient(160deg, var(--bg-navy) 0%, #0d2436 100%);
+    color: var(--text-light);
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4 {
+    font-family: 'Poppins', sans-serif;
+    color: var(--text-light) !important;
+}
+
+/* Sidebar */
+section[data-testid="stSidebar"] {
+    background: #081722;
+    border-right: 1px solid rgba(23, 195, 178, 0.2);
+}
+
+/* Hero header */
+.hero {
+    padding: 1.6rem 2rem;
+    border-radius: 18px;
+    background: linear-gradient(120deg, rgba(23,195,178,0.15), rgba(15,143,131,0.05));
+    border: 1px solid rgba(23,195,178,0.35);
+    margin-bottom: 1.5rem;
+}
+.hero h1 {
+    margin: 0;
+    font-size: 2.1rem;
+}
+.hero p {
+    color: var(--text-muted);      
+    margin-top: 0.4rem;
+    font-size: 1.02rem;
+}
+
+/* Verdict cards */
+.verdict-card {
+    padding: 1.8rem;
+    border-radius: 18px;
+    text-align: center;
+    font-family: 'Poppins', sans-serif;
+    margin-top: 1rem;
+    border: 1px solid rgba(255,255,255,0.08);
+}
+.verdict-spam {
+    background: linear-gradient(135deg, rgba(233,69,96,0.25), rgba(233,69,96,0.05));
+    border: 1px solid rgba(233,69,96,0.5);
+}
+.verdict-safe {
+    background: linear-gradient(135deg, rgba(23,195,178,0.25), rgba(23,195,178,0.05));
+    border: 1px solid rgba(23,195,178,0.5);
+}
+.verdict-title {
+    font-size: 1.6rem;
+    font-weight: 700;
+}
+.verdict-sub {
+    color: var(--text-muted);
+    font-size: 0.95rem;
+    margin-top: 0.3rem;
+}
+
+/* Generic content card */
+.info-card {
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 14px;
+    padding: 1.2rem 1.4rem;
+    margin-bottom: 1rem;
+}
+
+/* Metric pill row */
+.pill {
+    display: inline-block;
+    padding: 0.25rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(23,195,178,0.15);
+    color: var(--teal);
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-right: 0.4rem;
+}
+
+/* Buttons */
+.stButton > button {
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    color: #04211e;
+    font-weight: 700;
+    border: none;
+    border-radius: 10px; 
+    padding: 0.6rem 1.4rem;
+    transition: transform 0.15s ease;
+}
+.stButton > button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 18px rgba(23,195,178,0.35);
+}
+
+/* Footer */
+.footer-note {
+    text-align: center;
+    color: var(--text-muted);
+    font-size: 0.8rem;
+    margin-top: 2.5rem;
+    padding-top: 1rem;
+    border-top: 1px solid rgba(255,255,255,0.07);
+}
