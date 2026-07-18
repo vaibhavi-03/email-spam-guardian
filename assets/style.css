@@ -1,121 +1,173 @@
-@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&family=Inter:wght@400;500;600&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&family=Inter:wght@400;500;600&display=swap');
 
 :root {
-    --bg-navy: #0b1e2d;
-    --bg-navy-light: #10293e;
+    --bg-navy: #0a1a26;
+    --bg-navy-2: #0d2436;
     --teal: #17c3b2;
+    --teal-glow: rgba(23,195,178,0.35);
     --teal-dark: #0f8f83;
-    --cream: #f4f1de;
     --danger: #e94560;
+    --danger-glow: rgba(233,69,96,0.35);
     --text-light: #eaf2f4;
     --text-muted: #9fb3bf;
 }
 
-/* Overall app background */
+/* ---------- Page background: gradient + tiled envelope/shield SVG pattern ---------- */
 .stApp {
-    background: linear-gradient(160deg, var(--bg-navy) 0%, #0d2436 100%);
     color: var(--text-light);
     font-family: 'Inter', sans-serif;
+    background-color: var(--bg-navy);
+    background-image:
+        radial-gradient(circle at 15% 10%, rgba(23,195,178,0.10) 0%, transparent 45%),
+        radial-gradient(circle at 85% 90%, rgba(233,69,96,0.07) 0%, transparent 45%),
+        url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cg fill='none' stroke='%2317c3b2' stroke-width='1.4' opacity='0.10'%3E%3Crect x='14' y='40' width='58' height='40' rx='4'/%3E%3Cpath d='M14 40 L43 66 L72 40'/%3E%3C/g%3E%3Cg fill='none' stroke='%2317c3b2' stroke-width='1.4' opacity='0.08'%3E%3Cpath d='M118 20 L138 28 L138 52 C138 68 128 78 118 84 C108 78 98 68 98 52 L98 28 Z'/%3E%3Cpath d='M110 52 L116 58 L128 44' stroke-width='1.2'/%3E%3C/g%3E%3C/svg%3E"),
+        linear-gradient(160deg, var(--bg-navy) 0%, var(--bg-navy-2) 100%);
+    background-repeat: no-repeat, no-repeat, repeat, no-repeat;
+    background-attachment: fixed;
 }
 
-h1, h2, h3, h4 {
-    font-family: 'Poppins', sans-serif;
-    color: var(--text-light) !important;
-}
+h1, h2, h3, h4 { font-family: 'Poppins', sans-serif; color: var(--text-light) !important; }
 
-/* Sidebar */
-section[data-testid="stSidebar"] {
-    background: #081722;
-    border-right: 1px solid rgba(23, 195, 178, 0.2);
-}
-
-/* Hero header */
+/* ---------- Hero ---------- */
 .hero {
-    padding: 1.6rem 2rem;
-    border-radius: 18px;
-    background: linear-gradient(120deg, rgba(23,195,178,0.15), rgba(15,143,131,0.05));
+    position: relative;
+    padding: 2rem 2.2rem;
+    border-radius: 20px;
+    background: linear-gradient(120deg, rgba(23,195,178,0.16), rgba(15,143,131,0.04));
     border: 1px solid rgba(23,195,178,0.35);
-    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 40px rgba(23,195,178,0.08);
+    margin-bottom: 1.8rem;
+    overflow: hidden;
 }
-.hero h1 {
-    margin: 0;
-    font-size: 2.1rem;
+.hero::after {
+    content: "";
+    position: absolute;
+    right: -40px; top: -40px;
+    width: 180px; height: 180px;
+    background: radial-gradient(circle, var(--teal-glow) 0%, transparent 70%);
+    pointer-events: none;
 }
-.hero p {
-    color: var(--text-muted);      
-    margin-top: 0.4rem;
-    font-size: 1.02rem;
+.hero-row { display: flex; align-items: center; gap: 1rem; position: relative; z-index: 1; }
+.hero-icon {
+    width: 58px; height: 58px; flex-shrink: 0;
+    display: flex; align-items: center; justify-content: center;
+    border-radius: 16px;
+    background: linear-gradient(135deg, var(--teal), var(--teal-dark));
+    box-shadow: 0 6px 20px var(--teal-glow);
+    font-size: 1.8rem;
 }
+.hero h1 { margin: 0; font-size: 2.1rem; font-weight: 800; letter-spacing: -0.5px; }
+.hero p { color: var(--text-muted); margin: 0.35rem 0 0 0; font-size: 1.02rem; }
 
-/* Verdict cards */
-.verdict-card {
-    padding: 1.8rem;
+/* ---------- Section / form card ---------- */
+.form-card {
+    background: rgba(255,255,255,0.035);
+    border: 1px solid rgba(255,255,255,0.09);
     border-radius: 18px;
-    text-align: center;
-    font-family: 'Poppins', sans-serif;
-    margin-top: 1rem;
-    border: 1px solid rgba(255,255,255,0.08);
-}
-.verdict-spam {
-    background: linear-gradient(135deg, rgba(233,69,96,0.25), rgba(233,69,96,0.05));
-    border: 1px solid rgba(233,69,96,0.5);
-}
-.verdict-safe {
-    background: linear-gradient(135deg, rgba(23,195,178,0.25), rgba(23,195,178,0.05));
-    border: 1px solid rgba(23,195,178,0.5);
-}
-.verdict-title {
-    font-size: 1.6rem;
-    font-weight: 700;
-}
-.verdict-sub {
-    color: var(--text-muted);
-    font-size: 0.95rem;
-    margin-top: 0.3rem;
-}
-
-/* Generic content card */
-.info-card {
-    background: rgba(255,255,255,0.03);
-    border: 1px solid rgba(255,255,255,0.08);
-    border-radius: 14px;
-    padding: 1.2rem 1.4rem;
+    padding: 1.5rem 1.6rem;
+    -webkit-backdrop-filter: blur(6px);
+    backdrop-filter: blur(6px);
     margin-bottom: 1rem;
 }
-
-/* Metric pill row */
-.pill {
-    display: inline-block;
-    padding: 0.25rem 0.8rem;
-    border-radius: 999px;
-    background: rgba(23,195,178,0.15);
-    color: var(--teal);
-    font-size: 0.8rem;
-    font-weight: 600;
-    margin-right: 0.4rem;
+.form-card h4 {
+    display: flex; align-items: center; gap: 0.5rem;
+    font-size: 1.05rem; margin-top: 0; margin-bottom: 1.1rem;
+    color: var(--teal) !important;
 }
+
+/* Streamlit widget label text */
+label, .stTextInput label, .stSelectbox label, .stSlider label, .stCheckbox label {
+    color: var(--text-light) !important;
+    font-weight: 500 !important;
+}
+
+/* Text inputs / selects */
+.stTextInput input, .stSelectbox div[data-baseweb="select"] > div {
+    background-color: rgba(255,255,255,0.05) !important;
+    border: 1px solid rgba(23,195,178,0.25) !important;
+    border-radius: 10px !important;
+    color: var(--text-light) !important;
+}
+.stTextInput input:focus {
+    border-color: var(--teal) !important;
+    box-shadow: 0 0 0 1px var(--teal) !important;
+}
+
+/* Sliders */
+.stSlider [data-baseweb="slider"] div[role="slider"] {
+    background-color: var(--teal) !important;
+    box-shadow: 0 0 10px var(--teal-glow) !important;
+}
+.stSlider [data-testid="stTickBarMin"], .stSlider [data-testid="stTickBarMax"] {
+    color: var(--text-muted) !important;
+}
+
+/* Checkbox */
+.stCheckbox [data-baseweb="checkbox"] svg { color: var(--teal) !important; }
 
 /* Buttons */
 .stButton > button {
     background: linear-gradient(135deg, var(--teal), var(--teal-dark));
     color: #04211e;
     font-weight: 700;
+    font-family: 'Poppins', sans-serif;
     border: none;
-    border-radius: 10px; 
-    padding: 0.6rem 1.4rem;
-    transition: transform 0.15s ease;
+    border-radius: 12px;
+    padding: 0.7rem 1.6rem;
+    width: 100%;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
 }
 .stButton > button:hover {
     transform: translateY(-2px);
-    box-shadow: 0 6px 18px rgba(23,195,178,0.35);
+    box-shadow: 0 8px 22px var(--teal-glow);
 }
 
-/* Footer */
-.footer-note {
+/* ---------- Verdict card ---------- */
+.verdict-card {
+    padding: 1.7rem;
+    border-radius: 20px;
     text-align: center;
+    font-family: 'Poppins', sans-serif;
+    border: 1px solid rgba(255,255,255,0.08);
+    margin-bottom: 1rem;
+}
+.verdict-spam {
+    background: linear-gradient(160deg, rgba(233,69,96,0.28), rgba(233,69,96,0.04));
+    border: 1px solid rgba(233,69,96,0.55);
+    box-shadow: 0 10px 30px var(--danger-glow);
+}
+.verdict-safe {
+    background: linear-gradient(160deg, rgba(23,195,178,0.28), rgba(23,195,178,0.04));
+    border: 1px solid rgba(23,195,178,0.55);
+    box-shadow: 0 10px 30px var(--teal-glow);
+}
+.verdict-icon { font-size: 2.4rem; line-height: 1; }
+.verdict-title { font-size: 1.5rem; font-weight: 800; margin-top: 0.4rem; }
+.verdict-sub { color: var(--text-muted); font-size: 0.95rem; margin-top: 0.3rem; }
+
+.placeholder-card {
+    padding: 2.4rem 1.6rem;
+    border-radius: 20px;
+    text-align: center;
+    border: 1px dashed rgba(255,255,255,0.18);
     color: var(--text-muted);
-    font-size: 0.8rem;
-    margin-top: 2.5rem;
-    padding-top: 1rem;
-    border-top: 1px solid rgba(255,255,255,0.07);
+}
+.placeholder-card .big-icon { font-size: 2.6rem; opacity: 0.6; }
+
+/* Signal chips */
+.chip-row { display: flex; flex-wrap: wrap; gap: 0.5rem; margin-top: 0.8rem; }
+.chip {
+    padding: 0.4rem 0.8rem;
+    border-radius: 999px;
+    font-size: 0.82rem;
+    font-weight: 600;
+    background: rgba(255,255,255,0.06);
+    border: 1px solid rgba(255,255,255,0.1);
+}
+.chip.risk { background: rgba(233,69,96,0.14); border-color: rgba(233,69,96,0.4); color: #ff8fa3; }
+.chip.ok { background: rgba(23,195,178,0.14); border-color: rgba(23,195,178,0.4); color: #6fe6d8; }
+
+.footer-note {
+    text-align: center; color: var(--text-muted); font-size: 0.8rem;
+    margin-top: 2rem; padding-top: 1rem; border-top: 1px solid rgba(255,255,255,0.07);
 }
