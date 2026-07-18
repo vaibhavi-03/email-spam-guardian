@@ -24,20 +24,20 @@ before any modelling happens.
 ## Project structure
 
 email-spam-guardian/
-├── app.py                          
+├── app.py
 ├── requirements.txt
 ├── .gitignore
 ├── README.md
 ├── notebooks/
-│   └── email-spam-detection.ipynb  
+│   └── email-spam-detection.ipynb
 ├── data/
-│   └── email_spam_detection.csv   
-├── models/                         
+│   └── email_spam_detection.csv
+├── models/
 │   ├── spam_pipeline.joblib
 │   ├── metrics.json
 │   └── feature_importance.json
 └── assets/
-└── style.css                  
+    └── style.css                
 
 ## How it works
 
