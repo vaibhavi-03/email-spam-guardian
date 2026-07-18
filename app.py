@@ -23,23 +23,13 @@ MODELS_DIR = Path("models")
 URGENT_SUBJECTS = {"Security Alert", "Account Verification", "Win Prize"}
 CATEGORICAL_FEATURES = ["email_domain", "Subject"]
 NUMERIC_FEATURES = [
-    "Email_Length", "Num_Links", "Num_Special_Chars", "Capital_Words",
-    "Has_Attachment", "subject_length", "is_urgent_subject",
+    "Num_Links", "Num_Special_Chars", "Capital_Words", "Has_Attachment",
+    "subject_length", "is_urgent_subject",
 ]
 KNOWN_SUBJECTS = [
     "Meeting", "Security Alert", "Win Prize", "Invoice",
     "Account Verification", "Project Update", "Offer", "Greetings",
 ]
-
-# Keep UI inputs inside the range represented by the training data.  The
-# StandardScaler is already part of ``spam_pipeline.joblib`` and runs during
-# ``predict_proba``; these bounds prevent the UI from feeding it unrealistic
-# values (the training range for Email_Length was 20–265 characters).
-EMAIL_LENGTH_MIN = 20
-EMAIL_LENGTH_MAX = 265
-EMAIL_LENGTH_DEFAULT = 95  # training-data median
-EMAIL_LENGTH_HIGH = 158    # training-data 75th percentile
-
 
 def add_engineered_columns(frame: pd.DataFrame) -> pd.DataFrame:
     frame = frame.copy()
@@ -103,13 +93,6 @@ with col_left:
 
         c1, c2 = st.columns(2)
         with c1:
-            email_length = st.slider(
-                "Email length (characters)",
-                EMAIL_LENGTH_MIN,
-                EMAIL_LENGTH_MAX,
-                EMAIL_LENGTH_DEFAULT,
-                help="Use the email body length. Values are limited to the range used to train the model.",
-            )
             num_special_chars = st.slider("Special characters", 0, 50, 3)
         with c2:
             num_links = st.slider("Number of links", 0, 20, 1)
@@ -123,7 +106,6 @@ with col_left:
             row = pd.DataFrame([{
                 "Sender_Email": sender_email or "unknown@unknown.com",
                 "Subject": subject,
-                "Email_Length": float(email_length),
                 "Num_Links": float(num_links),
                 "Num_Special_Chars": float(num_special_chars),
                 "Capital_Words": capital_words,
@@ -134,7 +116,6 @@ with col_left:
 
             st.session_state.result = {
                 "proba": proba,
-                "email_length": email_length,
                 "num_links": num_links,
                 "num_special_chars": num_special_chars,
                 "capital_words": capital_words,
@@ -204,9 +185,6 @@ with col_right:
                        "risk" if result["num_special_chars"] >= 8 else "ok"))
         chips.append(("ALL-CAPS: heavy" if result["capital_words"] >= 6 else "ALL-CAPS: light",
                        "risk" if result["capital_words"] >= 6 else "ok"))
-        chips.append(("Long email" if result["email_length"] >= EMAIL_LENGTH_HIGH else "Typical length",
-                       "risk" if result["email_length"] >= EMAIL_LENGTH_HIGH else "ok"))
-
         chip_html = "".join(f'<span class="chip {cls}">{label}</span>' for label, cls in chips)
         st.markdown(f'<div class="chip-row">{chip_html}</div>', unsafe_allow_html=True)
 
