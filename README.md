@@ -23,6 +23,7 @@ before any modelling happens.
 
 ## Project structure
 
+```
 email-spam-guardian/
 ├── app.py
 ├── requirements.txt
@@ -38,7 +39,7 @@ email-spam-guardian/
 │   └── feature_importance.json
 └── assets/
     └── style.css                
-
+```
 ## How it works
 
 1. **`notebooks/email-spam-detection.ipynb`** — loads the raw CSV, cleans it (fixes the
