@@ -70,13 +70,6 @@ number itself.
 
 ```
 
-## Deployment
-
-1. Push this repo to GitHub (public, so Streamlit Community Cloud's free tier can reach it).
-2. Go to [share.streamlit.io](https://share.streamlit.io), sign in with GitHub, click
-   **Create app**.
-3. Point it at your repo, branch `main`, file `app.py`. Click **Deploy**.
-4. Once live, replace the placeholder URL at the top of this README, commit, and push.
 
 ## Tech stack
 
