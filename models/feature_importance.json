@@ -1,82 +1,82 @@
 [
   [
     "num__Email_Length",
-    3.696457658839545
+    0.35727205018742064
   ],
   [
     "num__Num_Special_Chars",
-    3.6899007666179386
+    0.32687392455630704
   ],
   [
     "num__Capital_Words",
-    2.0184684914205087
+    0.1885279657286446
   ],
   [
     "num__Num_Links",
-    1.8267153653068309
+    0.11781755316807231
   ],
   [
     "remainder__Has_Attachment",
-    0.5916917038535289
-  ],
-  [
-    "cat__email_domain_company.com",
-    0.5429965574139632
-  ],
-  [
-    "cat__Subject_Security Alert",
-    0.304552085653567
-  ],
-  [
-    "cat__Subject_Project Update",
-    0.29226763193729244
-  ],
-  [
-    "cat__email_domain_gmail.com",
-    0.26891624542444187
-  ],
-  [
-    "cat__Subject_Win Prize",
-    0.2642617700689488
-  ],
-  [
-    "cat__Subject_Greetings",
-    0.2401301505217629
-  ],
-  [
-    "cat__Subject_Meeting",
-    0.23284483440129797
-  ],
-  [
-    "cat__email_domain_outlook.com",
-    0.21271175686534582
-  ],
-  [
-    "cat__Subject_Offer",
-    0.16107313149431254
-  ],
-  [
-    "cat__Subject_Invoice",
-    0.11243873324352784
-  ],
-  [
-    "cat__email_domain_yahoo.com",
-    0.09060128838607268
-  ],
-  [
-    "remainder__is_urgent_subject",
-    0.07899675271654484
+    0.006244223395039122
   ],
   [
     "num__subject_length",
-    0.05107139547991312
+    0.00042229061175248436
+  ],
+  [
+    "cat__email_domain_gmail.com",
+    0.00036151198165478005
+  ],
+  [
+    "cat__email_domain_yahoo.com",
+    0.00027390235173156956
+  ],
+  [
+    "cat__Subject_Invoice",
+    0.0002694888352324947
+  ],
+  [
+    "cat__email_domain_outlook.com",
+    0.00023179100387921348
+  ],
+  [
+    "remainder__is_urgent_subject",
+    0.00022325372479364657
+  ],
+  [
+    "cat__Subject_Win Prize",
+    0.00021961416983208918
+  ],
+  [
+    "cat__email_domain_company.com",
+    0.0002171819789761757
+  ],
+  [
+    "cat__Subject_Security Alert",
+    0.0001911889198290452
+  ],
+  [
+    "cat__Subject_Project Update",
+    0.0001899631693041357
+  ],
+  [
+    "cat__Subject_Offer",
+    0.000172331616402849
+  ],
+  [
+    "cat__Subject_Meeting",
+    0.00016347927112186211
   ],
   [
     "cat__Subject_Account Verification",
-    0.03870643713192687
+    0.00013916679490062414
+  ],
+  [
+    "cat__Subject_Greetings",
+    0.00013730237530351603
   ],
   [
     "cat__email_domain_unknown.com",
-    0.002525386224913871
+    5.181615980176641e-05
   ]
 ]

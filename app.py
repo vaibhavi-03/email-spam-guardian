@@ -210,15 +210,5 @@ with col_right:
         chip_html = "".join(f'<span class="chip {cls}">{label}</span>' for label, cls in chips)
         st.markdown(f'<div class="chip-row">{chip_html}</div>', unsafe_allow_html=True)
 
-        fi = load_feature_importance()
-        if fi:
-            fi_df = pd.DataFrame(fi[:6], columns=["feature", "importance"]).sort_values("importance")
-            fig = px.bar(fi_df, x="importance", y="feature", orientation="h",
-                         title="What the model weighs most heavily overall")
-            fig.update_layout(
-                paper_bgcolor="rgba(0,0,0,0)", plot_bgcolor="rgba(0,0,0,0)",
-                font={"color": "#eaf2f4"}, height=260, margin=dict(l=10, r=10, t=40, b=10),
-            )
-            st.plotly_chart(fig, use_container_width=True)
-
+        
 st.markdown('<div class="footer-note">Email Spam Guardian · Built with Streamlit</div>', unsafe_allow_html=True)
